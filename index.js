@@ -8,7 +8,11 @@ const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors());
+app.use(
+  cors({
+    origin: process.env.ORIGINS.split(" "),
+  })
+);
 
 app.get("/", (req, res) => {
   res.send("Server is up and running 🚀");
