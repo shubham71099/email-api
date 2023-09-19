@@ -15,7 +15,11 @@ app.use(
 );
 
 app.get("/", (req, res) => {
-  res.send("Server is up and running 🚀");
+  res.send(
+    `<h1>Server is up and running 🚀</h1><br/><p>This API can be used from ${process.env.ORIGINS.split(
+      " "
+    ).join(" and ")}</p>`
+  );
 });
 
 app.post("/api/email/send", async (req, res) => {
